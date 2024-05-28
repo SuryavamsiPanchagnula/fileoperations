@@ -1,0 +1,92 @@
+package task_13;
+import java.io.*;
+
+import org.apache.poi.ss.usermodel.Sheet;
+import org.apache.poi.xssf.usermodel.XSSFCell;
+import org.apache.poi.xssf.usermodel.XSSFCellStyle;
+import org.apache.poi.xssf.usermodel.XSSFFont;
+import org.apache.poi.xssf.usermodel.XSSFRow;
+import org.apache.poi.xssf.usermodel.XSSFSheet;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+public class excel_read {
+	
+public static void main(String args[]) throws IOException {
+	
+	XSSFWorkbook workbook = new XSSFWorkbook();
+	
+	XSSFSheet sheet = workbook.createSheet("sheet1");
+		
+	XSSFRow row1 = sheet.createRow(0);
+	
+	XSSFCell A1 = row1.createCell(0);
+	XSSFCell B1 = row1.createCell(1);
+	XSSFCell C1 = row1.createCell(2);
+	
+	XSSFFont font = workbook.createFont();
+	font.setBold(true);
+	
+	XSSFCellStyle style = workbook.createCellStyle();
+	style.setFont(font);
+	
+	A1.setCellStyle(style);
+	B1.setCellStyle(style);
+	C1.setCellStyle(style);
+	
+	A1.setCellValue("Name");
+	B1.setCellValue("Age");
+	C1.setCellValue("Email");
+	
+	XSSFRow row2 = sheet.createRow(1);
+	
+	XSSFCell A2 = row2.createCell(0);
+	XSSFCell B2 = row2.createCell(1);
+	XSSFCell C2 = row2.createCell(2);
+	
+	A2.setCellValue("JohnDoe");
+	B2.setCellValue(30);
+	C2.setCellValue("john@test.com");
+	
+	XSSFRow row3 = sheet.createRow(2);
+	
+	XSSFCell A3 = row3.createCell(0);
+	XSSFCell B3 = row3.createCell(1);
+	XSSFCell C3 = row3.createCell(2);
+	
+	A3.setCellValue("Jane Doe");
+	B3.setCellValue(28);
+	C3.setCellValue("john@test.com");
+	
+	
+	XSSFRow row4 = sheet.createRow(3);
+	
+	XSSFCell A4 = row4.createCell(0);
+	XSSFCell B4 = row4.createCell(1);
+	XSSFCell C4 = row4.createCell(2);
+	
+	A4.setCellValue("Bob Smith");
+	B4.setCellValue(35);
+	C4.setCellValue("jacky@example.com");
+	
+	XSSFRow row5 = sheet.createRow(4);
+	
+	XSSFCell A5 = row5.createCell(0);
+	XSSFCell B5 = row5.createCell(1);
+	XSSFCell C5 = row5.createCell(2);
+	
+	A5.setCellValue("Swapnil");
+	B5.setCellValue(37);
+	C5.setCellValue("swapnil@example.com");
+	
+	FileOutputStream fileOut;
+    try {
+        fileOut = new FileOutputStream("C:\\Users\\Dell\\Documents\\NewWorkbookWithData.xlsx");
+        workbook.write(fileOut);
+        fileOut.close();
+        System.out.println("New Excel workbook created with data inserted successfully.");
+    } catch (IOException e) {
+        System.out.println("Error occurred while creating the Excel workbook: " + e.getMessage());
+        e.printStackTrace();
+    }
+	}
+
+}

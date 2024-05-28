@@ -1,0 +1,24 @@
+package task_13;
+
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+
+import org.apache.poi.xssf.usermodel.XSSFSheet;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+
+public class excel_read {
+	
+public static void main(String args[]) throws IOException {
+		
+		File a= new File("C:\\Users\\Dell\\Documents\\Book2.xlsx");
+		
+		FileInputStream f = new FileInputStream(a);
+		
+		XSSFWorkbook c = new XSSFWorkbook(f);
+		
+		XSSFSheet d = c.getSheet("Sheet1");
+		
+	}
+
+}
